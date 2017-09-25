@@ -1,32 +1,46 @@
-import React, {Component} from 'react'
-import FixedContent from '../../components/common/FixedContent'
+import React from 'react'
 import {connect} from 'react-redux'
+import FixContent from './../../components/common/FixedContent'
+import {Link} from 'react-router'
+import styles from './Home.scss'
+import Button from './comps/button/Button'
+import {formatTel} from './comps/utils/utils'
 
-let Home = React.createClass({
-  render() {
-    return (
-      <FixedContent>
-        <p>asddddddddddd</p>
-      </FixedContent>
-    )
-  }
-})
-
-const mapStateToProps = (state) => {
-  return {
-  }
+const routeConfig = [
+    {
+        name: 'child1',
+        text: '购买保险页'
+    }, {
+        name: 'child2',
+        text: '险种介绍页'
+    }, {
+        name: 'child3',
+        text: '订单页面'
+    }, {
+        name: 'child4',
+        text: '订单详情页'
+    }
+]
+class Home extends React.Component {
+    /**
+     * orderStatus, mobileNumber, insureCity, startTime
+     * @returns {XML}
+     */
+    render () {
+        console.log(formatTel('18510549872'))
+        return (
+            <FixContent>
+              <div>
+                <ul className={styles.this}>
+                    {
+                        routeConfig.map((item, index) => {
+                            return <li key={index}><Link to={`/product/${item.name}`} activeStyle={{color: 'red'}}>{item.text}</Link></li>
+                        })
+                    }
+                </ul>
+              </div>
+            </FixContent>
+        )
+    }
 }
-/**
- * 跳转到查询成功需要的参数
- * 形式：setinfo/:tab/:flag
- * tab = {elec,normal,special}
- * flag = {set,wait,finish}
- * eg: setinfo/elec/wait
- * 发票信息存储字段名：invoiceInfo
- */
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return{
-    
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default connect()(Home)

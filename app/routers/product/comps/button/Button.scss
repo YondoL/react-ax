@@ -1,0 +1,22 @@
+.btn{
+  height: 0.44rem;
+  line-height: 0.44rem;
+  display: block;
+  padding: 0.2rem 0;
+  margin: 0 auto;
+  background: #ed5026;
+  color: #fff;
+  text-align: center;
+  &.btn-default{
+    display: inline-block;
+    width: 1.5rem;
+  }
+  &.btn-block{
+    width: 6rem;
+  }
+  &.btn-fixed{
+    width: 7.5rem;
+    position: fixed;
+    bottom: 0;
+  }
+}
