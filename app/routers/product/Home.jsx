@@ -3,8 +3,7 @@ import {connect} from 'react-redux'
 import FixContent from './../../components/common/FixedContent'
 import {Link} from 'react-router'
 import styles from './Home.scss'
-import Button from './comps/button/Button'
-import {formatTel} from './comps/utils/utils'
+import {formatTel, queryString} from './comps/utils/utils'
 
 const routeConfig = [
     {
@@ -28,6 +27,7 @@ class Home extends React.Component {
      */
     render () {
         console.log(formatTel('18510549872'))
+        console.log(queryString('tel'))
         return (
             <FixContent>
               <div>
@@ -43,4 +43,5 @@ class Home extends React.Component {
         )
     }
 }
+
 export default connect()(Home)
